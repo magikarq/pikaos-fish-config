@@ -1,2 +1,2 @@
-# Cachyos Fish Config
+# Pikaos Fish Config
 
