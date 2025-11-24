@@ -1,5 +1,5 @@
-﻿## Source from conf.d before our fish config
-source /usr/share/cachyos-fish-config/conf.d/done.fish
+## Source from conf.d before our fish config
+source /usr/share/pikaos-fish-config/conf.d/done.fish
 
 ## Set values
 ## Run fastfetch as welcome message
@@ -83,8 +83,7 @@ alias lt='eza -aT --color=always --group-directories-first --icons=always' # tre
 alias l.="eza -a | grep -e '^\.'"                                     # show only dotfiles
 
 # Common use
-alias grubup="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias fixapt="sudo apt --fix-broken install"
 alias tarnow='tar -acf '
 alias untar='tar -zxvf '
 alias wget='wget -c '
@@ -103,18 +102,13 @@ alias egrep='egrep --color=auto'
 alias hw='hwinfo --short'                                   # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'          # List amount of -git packages
-alias update='sudo cachyos-rate-mirrors && sudo pacman -Syu'
+alias update='pikman upgrade && flatpak update'
 
 # Get fastest mirrors
-alias mirror="sudo cachyos-rate-mirrors"
-
-# Help people new to Arch
-alias apt='man pacman'
-alias apt-get='man pacman'
-alias tb='nc termbin.com 9999'
+#alias mirror="sudo cachyos-rate-mirrors"
 
 # Cleanup orphaned packages
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+alias cleanup='pikman autoremove'
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
